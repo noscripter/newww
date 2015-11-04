@@ -42,6 +42,7 @@
     "crumb": "^4.0.4",
     "debuglog": "^1.0.1",
     "dotenv": "^1.2.0",
+    "double-ended-queue": "~0.9.7",
     "elasticsearch": "^5.0.0",
     "github-url-to-object": "^1.6.0",
     "gravatar": "^1.3.1",
