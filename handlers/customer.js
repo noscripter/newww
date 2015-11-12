@@ -171,13 +171,14 @@ customer.subscribe = function(request, reply) {
         });
       } else {
         notices = err.details.map(function(e) {
-          return P.reject(e.message);
+          return P.reject(e);
         });
 
         return request.saveNotifications(notices).then(function(token) {
           return reply.redirect('/settings/billing' + (token ? '?notice=' + token : ''));
         }).catch(function(err) {
           request.logger.error(err);
+          return reply.view('errors/internal', err).code(500)
         });
       }
 
