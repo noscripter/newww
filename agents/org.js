@@ -63,7 +63,7 @@ Org.prototype.create = function(opts, callback) {
 
       return accept(body);
     });
-  }).nodeify(callback);
+  }).asCallback(callback);
 };
 
 Org.prototype.get = function(name, callback) {
@@ -117,7 +117,7 @@ Org.prototype.get = function(name, callback) {
     ret.packages = pkg;
 
     return ret;
-  }).nodeify(callback);
+  }).asCallback(callback);
 };
 
 Org.prototype.update = function(data, callback) {
@@ -336,6 +336,6 @@ Org.prototype.removeUser = function(name, userId, callback) {
       return accept(removedUser);
 
     });
-  }).nodeify(callback);
+  }).asCallback(callback);
 
 };
