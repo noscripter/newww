@@ -191,7 +191,7 @@ exports.showTeam = function(request, reply) {
           pkg.canWrite = true;
         }
 
-        if(pkg.access === 'restricted') {
+        if (pkg.access === 'restricted') {
           pkg.private = true;
         }
       });

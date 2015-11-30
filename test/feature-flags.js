@@ -72,7 +72,8 @@ describe('feature flags', function() {
   afterEach(function(done) {
     Object.keys(process.env).forEach(function(key) {
       if (key.match(/^FEATURE_/i)) {
-        delete process.env[key];
+        delete process.env[key]
+        ;
       }
     });
     done();

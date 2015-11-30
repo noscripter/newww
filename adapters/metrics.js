@@ -8,8 +8,7 @@ module.exports = function constructEmitter() {
 
   if (!process.env.METRICS_URL) {
     emitter = new StubMetricsEmitter();
-  }
-  else {
+  } else {
     emitter = new Emitter({
       uri: process.env.METRICS_URL,
       app: 'newww',
@@ -20,5 +19,6 @@ module.exports = function constructEmitter() {
   return emitter;
 };
 
-function StubMetricsEmitter() {}
+function StubMetricsEmitter() {
+}
 StubMetricsEmitter.prototype.metric = function() {};

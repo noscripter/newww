@@ -199,7 +199,7 @@ Team.prototype.addPackage = function(opts) {
 
 Team.prototype.addPackages = function(opts) {
   opts = opts || {};
-  var packages = (opts.packages || []).map(function (xs) {
+  var packages = (opts.packages || []).map(function(xs) {
     return {
       name: xs.name,
       permissions: xs.permissions
@@ -215,14 +215,16 @@ Team.prototype.addPackages = function(opts) {
     headers: {
       bearer: this.bearer
     }
-  }).spread(function (resp, body) {
+  }).spread(function(resp, body) {
     if (resp.statusCode >= 400) {
       throw _.extend(new Error(
         resp.statusCode === 400 ? body.error :
-        resp.statusCode === 401 ? 'user is unauthorized to perform this action' :
-        resp.statusCode === 404 ? 'Team or Org not found' :
-        body.error
-      ), {statusCode: resp.statusCode});
+          resp.statusCode === 401 ? 'user is unauthorized to perform this action' :
+            resp.statusCode === 404 ? 'Team or Org not found' :
+              body.error
+      ), {
+        statusCode: resp.statusCode
+      });
     }
     return body;
   })

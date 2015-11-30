@@ -105,8 +105,8 @@ AddPackageForm.prototype.addPackages = function(packages) {
   this.updatePackageCount();
 };
 
-AddPackageForm.prototype.addPackage = function (package) {
-  var pkg = template(package);
+AddPackageForm.prototype.addPackage = function(pack) {
+  var pkg = template(pack);
   this.pkgsList.append(pkg);
   this.packageCount += 1;
   this.updatePackageCount();
@@ -171,7 +171,7 @@ module.exports = function() {
           });
       });
 
-      auf.personalSelect.on("change", function () {
+      auf.personalSelect.on("change", function() {
         var packageName = this.options[this.selectedIndex].value;
         if (packageName === "_none_") {
           return;
