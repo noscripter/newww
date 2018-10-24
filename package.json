@@ -12,7 +12,9 @@
     "prepublish": "gulp build",
     "repl": "rc /tmp/repl/www-15443.sock",
     "start": "node server.js",
-    "test": "lab --verbose --colors --ignore '$$bole,__grim__,flushdb,end' --assert code --timeout 5000"
+    "test": "lab --verbose --colors --ignore '$$bole,__grim__,flushdb,end' --assert code --timeout 5000",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "author": "npm, Inc. <support@npmjs.com>",
   "license": "ISC",
@@ -99,13 +101,14 @@
     "scooter": "^2.0.1",
     "steeltoe": "^1.0.1",
     "stripe": "^2.9.0",
-    "stylus": "^0.52.4",
+    "stylus": "^0.54.3",
     "tipsy-browserify": "^1.0.0",
     "token-facilitator": "^2.2.0",
     "truncate": "^1.0.4",
     "validate-npm-package-name": "^2.2.0",
     "verror": "^1.6.0",
-    "vision": "^3.0.0"
+    "vision": "^3.0.0",
+    "snyk": "^1.104.2"
   },
   "devDependencies": {
     "bistre": "^1.0.0",
@@ -134,5 +137,6 @@
     "sinon": "^1.17.1",
     "touch": "0.0.3",
     "vinyl-source-stream": "^0.1.1"
-  }
+  },
+  "snyk": true
 }
