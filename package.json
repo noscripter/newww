@@ -9,10 +9,11 @@
     "dev-db": "node dev/go.js",
     "dev-remote": "REMOTE_DEV=true gulp dev",
     "format": "find . -name .git -prune -o -name node_modules -prune -o -name '*.min.js' -prune -o -name '*.js' -print0 | xargs -0 esformatter -i",
-    "prepublish": "gulp build",
+    "prepublish": "npm run snyk-protect; gulp build",
     "repl": "rc /tmp/repl/www-15443.sock",
     "start": "node server.js",
-    "test": "lab --verbose --colors --ignore '$$bole,__grim__,flushdb,end' --assert code --timeout 5000"
+    "test": "lab --verbose --colors --ignore '$$bole,__grim__,flushdb,end' --assert code --timeout 5000",
+    "snyk-protect": "snyk protect"
   },
   "author": "npm, Inc. <support@npmjs.com>",
   "license": "ISC",
@@ -105,7 +106,8 @@
     "truncate": "^1.0.4",
     "validate-npm-package-name": "^2.2.0",
     "verror": "^1.6.0",
-    "vision": "^3.0.0"
+    "vision": "^3.0.0",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "bistre": "^1.0.0",
@@ -134,5 +136,6 @@
     "sinon": "^1.17.1",
     "touch": "0.0.3",
     "vinyl-source-stream": "^0.1.1"
-  }
+  },
+  "snyk": true
 }
